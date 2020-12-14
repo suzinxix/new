@@ -20,7 +20,7 @@ public class MiddleController {
     private MiddleRepository middleRepository;
 
     @GetMapping("/middle")
-    public String middle(Model model){
+    public String middle(Model model ,@RequestParam(required=false) Long id){
         List<Middle> middles = middleRepository.findAll();
 
         //Page<Middle> middles = middleRepository.findByYearContainingOrRegionContainingOrOrzContainingOrWorkContaining(searchtext, searchtext, searchtext, searchtext, pageable);
@@ -29,12 +29,12 @@ public class MiddleController {
         //model.addAttribute("startPage", startPage);
         //model.addAttribute("endPage", endPage);
         model.addAttribute("middles", middles);
-        //if (id == null) {
-        //    model.addAttribute("middle", new Middle());
-        //} else {
-        //    Middle middle = middleRepository.findById(id).orElse(null);
-        //    model.addAttribute("middle", middle);
-        //}
+        if (id == null) {
+            model.addAttribute("middle", new Middle());
+        } else {
+            Middle middle = middleRepository.findById(id).orElse(null);
+            model.addAttribute("middle", middle);
+        }
         return "education/middle";
     }
 

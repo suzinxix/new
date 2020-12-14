@@ -129,16 +129,21 @@
                         var total = 0;
                         $('table tr').each(function() {
                             var value = parseInt($('td', this).eq(index).text());
+                            if(index == 0 || index == 8){
 
-                            if (!isNaN(value)) {
-                                total += value;
+                            }else if (!isNaN(value)){
+                            total += value;
                             }
                         });
                         if(total == 0){
+                            if(index == 0){
+                                $('table tfoot td').eq(0).text('합계');
+                             }else{
                             $('table tfoot td').eq(index).text(' ');
+                            }
                         }
                         else{
-                            $('table tfoot td').eq(index).text('합계: ' + total);
+                            $('table tfoot td').eq(index).text(total);
                         }
                     }
                 </script>

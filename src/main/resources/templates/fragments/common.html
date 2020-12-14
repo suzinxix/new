@@ -34,7 +34,7 @@
                 <a class="nav-link" href="#" th:href="@{/meeting/meeting_list}">회의실 예약<span class="sr-only" th:if="${menu} == 'meeting'">(current)</span></a>
             </li>
             <li class="nav-item" th:classappend="${menu} == 'stock'? 'active'">
-                <a class="nav-link" href="#" th:href="@{/stock/stock}">교재재고 관리<span class="sr-only" th:if="${menu} == 'stock'">(current)</span></a>
+                <a class="nav-link" href="#" th:href="@{/stock/stock_list}">교재재고 관리<span class="sr-only" th:if="${menu} == 'stock'">(current)</span></a>
             </li>
             <li class="nav-item" th:classappend="${menu} == 'payment'? 'active'">
                 <a class="nav-link" href="#" th:href="@{/payment/payment_list}">선수금<span class="sr-only" th:if="${menu} == 'payment'">(current)</span></a>

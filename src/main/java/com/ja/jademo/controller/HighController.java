@@ -20,7 +20,7 @@ public class HighController {
     private HighRepository highRepository;
 
     @GetMapping("/high")
-    public String high(Model model){
+    public String high(Model model ,@RequestParam(required=false) Long id){
         List<High> highs = highRepository.findAll();
 
         //Page<High> highs = highRepository.findByYearContainingOrRegionContainingOrOrzContainingOrWorkContaining(searchtext, searchtext, searchtext, searchtext, pageable);
@@ -29,12 +29,12 @@ public class HighController {
         //model.addAttribute("startPage", startPage);
         //model.addAttribute("endPage", endPage);
         model.addAttribute("highs", highs);
-        //if (id == null) {
-        //    model.addAttribute("high", new High());
-        //} else {
-        //    High high = highRepository.findById(id).orElse(null);
-        //    model.addAttribute("high", high);
-        //}
+        if (id == null) {
+            model.addAttribute("high", new High());
+        } else {
+            High high = highRepository.findById(id).orElse(null);
+            model.addAttribute("high", high);
+        }
         return "education/high";
     }
 
