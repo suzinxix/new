@@ -47,7 +47,7 @@
     <br><br><br>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link " data-toggle="tab" href="#a1">유아</a>
+            <a class="nav-link " data-toggle="tab" th:href="@{/education/education}">유아</a>
         </li>
         <li class="nav-item">
             <a class="nav-link show active " th:href="@{/education/elementary}">초등</a>
@@ -80,7 +80,7 @@
         </div>
     </div>
     <div class="table-responsive">
-        <br>
+       <br>
         <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/education/elementary}">
             <div class="form-group mx-sm-3 mb-2">
                 <label for="searchtext" class="sr-only">검색</label>
