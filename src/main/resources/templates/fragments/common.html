@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-
+<!--
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:fragment="head(title)">
     <!--font-->
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
@@ -52,8 +54,8 @@
             <li class="nav-item" th:classappend="${menu} == 'education'?'active'">
                 <a class="nav-link " href="#" th:href="@{/education/education}">교육실적 관리<span class="sr-only" th:if="${menu} == 'education'">(current)</span></a>
             </li>
-            <li class="nav-item" th:classappend="${menu} == 'admin'?'active'">
-                <a class="nav-link " href="#" th:href="@{/account/admin}">관리자 페이지<span class="sr-only" th:if="${menu} == 'admin'">(current)</span></a>
+            <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')" th:classappend="${menu} == 'admin'?'active'">
+                <a class="nav-link " href="#" th:href="@{/account/admin}" >관리자페이지<span class="sr-only" th:if="${menu} == 'admin'">(current)</span></a>
             </li>
         </ul>
 
@@ -62,7 +64,12 @@
 
         <form class="form-inline mt-2 mt-md-0" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
             <span class="text-dark" sec:authentication="name">사용자</span> <span class="text-dark"> 님 </span>
-            <span class="text-dark mx-2" sec:authentication="principal.authorities">권한</span>
+            <span class="mx-2" sec:authorize="hasRole('ROLE_ADMIN')">
+                [Admin]
+            </span>
+            <span class="mx-2" sec:authorize="hasRole('ROLE_USER')">
+                [User]
+            </span>
             <button type="submit" class="btn btn-outline-success" >Logout</button>
         </form>
       </div>

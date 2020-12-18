@@ -14,6 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import javax.sql.DataSource;
 
@@ -30,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/","/account/register","/css/**").permitAll()
-                    .antMatchers("/account/admin").hasAuthority("Admin")
+                    .antMatchers("/account/admin").hasAuthority("ROLE_ADMIN")
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
