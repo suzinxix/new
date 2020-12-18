@@ -10,4 +10,5 @@ public class JademoApplication {
 		SpringApplication.run(JademoApplication.class, args);
 	}
 
+
 }

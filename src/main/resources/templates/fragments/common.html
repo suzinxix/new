@@ -59,8 +59,6 @@
 
         <a class="btn btn-outline-success mr-2" th:href="@{/account/login}"
         sec:authorize="!isAuthenticated()">Login</a>
-        <a class="btn btn-outline-success" th:href="@{/account/register}"
-        sec:authorize="!isAuthenticated()">Sign up</a>
 
         <form class="form-inline mt-2 mt-md-0" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
             <span class="text-dark" sec:authentication="name">사용자</span> <span class="text-dark"> 님 </span>

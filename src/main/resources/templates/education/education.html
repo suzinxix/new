@@ -42,12 +42,68 @@
         </ul>
     </div>
 </nav>
+<a id="top"></a>
 </header>
 <main role="main" class="container">
     <br><br>
-    <p align="middle"><iframe src="https://docs.google.com/spreadsheets/d/15sq6FAhRuc40xyrpezRlAZhPXtNlTwqu/edit#gid=1004207376" width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
+    <script type="text/javascript">
+        function changejr(){
+            var newurl="";
+            switch (document.getElementById("when").value){
+                case "2018":
+                    newurl="https://docs.google.com/spreadsheets/d/1Bn_0rWrnV7IIYxcwnZFOJMqDPzb-5_bC/edit#gid=1771677821";
+                    break;
+                case "2019":
+                    newurl="https://docs.google.com/spreadsheets/d/1x0Rs2R33uO5tHuJW5EwPL7mvyUq8ucq3/edit#gid=1771677821"
+                    break;
+                case "2020":
+                    newurl="https://docs.google.com/spreadsheets/d/1WSwfNL8-Tp52K7mfwyEyHTLotS0aGDHm/edit#gid=705631674"
+                    break;
+                case "2021":
+                    newurl="https://docs.google.com/spreadsheets/d/1oH00sqtlnl5xJeip5aJJdB8Lwkb0A3M_MYGa41VyQ7s/edit#gid=0"
+                    break;
+                case "2022":
+                    newurl="https://docs.google.com/spreadsheets/d/1CV5vJ90m4FkrOsxOwSE5sV5Fg3ZCyoMqZBieUKBJ0Ss/edit#gid=0"
+                    break;
+                case "2023":
+                    newurl="https://docs.google.com/spreadsheets/d/1Ihr6mateh8_kdpiOGah41YkZPoP-BFGrF9K8OnDz7mA/edit#gid=0"
+                    break;
+            }
+            document.getElementById("main_frame").src = newurl;
+        }
+    </script>
+    <div class="row justify-content-end">
+    <div class="col-auto">
+    <label class="mt-2">자료연도 :</label>
+    </div>
+    <div class="no-gutters">
+        <input id="when" type="text" list="year" class="form-control">
+
+        <datalist id="year">
+            <option value="2018"/>
+            <option value="2019"/>
+            <option value="2020"/>
+            <option value="2021"/>
+            <option value="2022"/>
+            <option value="2023"/>
+        </datalist>
+    </div>    <div class="col-auto">
+        <input type="button" class="btn btn-success "  onclick="changejr()" value="자료 바꾸기">
+    </div>
+    </div>
+
+    <p align="middle"><iframe  id="main_frame" src="https://docs.google.com/spreadsheets/d/1x0Rs2R33uO5tHuJW5EwPL7mvyUq8ucq3/edit#gid=1771677821" width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
     </iframe>
+        <a id="homedown" style="display:scroll;position:fixed;bottom:32px;right:60px;" href="#top"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#28A745" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg></a>
+        <a id="homeup" style="display:scroll;position:fixed;bottom:32px;right:22px;" href="#bottom"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#28A745" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+        </svg></a>
 </main>
+<a id="bottom"></a>
 
 <!-- Optional JavaScript; choose one of the two! -->
 
